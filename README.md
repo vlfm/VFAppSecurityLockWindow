@@ -1,6 +1,6 @@
 VFAppSecurityLockWindow
 =======================
-Utility that helps create lock screen for an application.
+Utility that helps create a lock screen for an application.
 
 Purpose
 =
