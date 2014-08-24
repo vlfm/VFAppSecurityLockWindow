@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hdm-tS-hWH">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VFAppSecurityLockWindowDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="azF-mY-b6r">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Lock should cover keyboard" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x32-K3-RSI">
+                                        <rect key="frame" x="8" y="20" width="584" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="0Ta-ba-LbV"/>
+                                            <constraint firstAttribute="width" priority="750" constant="584" id="g3f-Z8-rqf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6Z-n8-hek">
+                                        <rect key="frame" x="8" y="72" width="584" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="8ga-8f-GdE"/>
+                                            <constraint firstAttribute="width" priority="750" constant="584" id="D13-zL-WXx"/>
+                                        </constraints>
+                                        <state key="normal" title="Lock should cover UIAlertView">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="alertViewButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="auU-KZ-1zz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dae-8K-bdY">
+                                        <rect key="frame" x="8" y="124" width="584" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" priority="750" constant="584" id="lE9-tD-wAm"/>
+                                            <constraint firstAttribute="height" constant="44" id="o0r-lP-LH9"/>
+                                        </constraints>
+                                        <state key="normal" title="Lock should cover UIActionSheet">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionSheetButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AL5-lj-LRX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="x32-K3-RSI" firstAttribute="leading" secondItem="azF-mY-b6r" secondAttribute="leading" constant="8" id="2AV-Cp-hOP"/>
+                                    <constraint firstItem="Dae-8K-bdY" firstAttribute="top" secondItem="r6Z-n8-hek" secondAttribute="bottom" constant="8" id="6AW-wX-Lad"/>
+                                    <constraint firstItem="r6Z-n8-hek" firstAttribute="top" secondItem="x32-K3-RSI" secondAttribute="bottom" constant="8" id="URg-0E-3bX"/>
+                                    <constraint firstItem="Dae-8K-bdY" firstAttribute="leading" secondItem="azF-mY-b6r" secondAttribute="leading" constant="8" id="faa-Bi-KSg"/>
+                                    <constraint firstItem="r6Z-n8-hek" firstAttribute="leading" secondItem="azF-mY-b6r" secondAttribute="leading" constant="8" id="jCy-J7-wgc"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dae-8K-bdY" secondAttribute="trailing" constant="8" id="mwu-FG-Fkn"/>
+                                    <constraint firstAttribute="trailing" secondItem="x32-K3-RSI" secondAttribute="trailing" constant="8" id="ruv-PI-yM6"/>
+                                    <constraint firstAttribute="trailing" secondItem="r6Z-n8-hek" secondAttribute="trailing" constant="8" id="sPY-u2-86b"/>
+                                    <constraint firstAttribute="bottom" secondItem="Dae-8K-bdY" secondAttribute="bottom" priority="750" constant="432" id="wpQ-b4-WOf"/>
+                                    <constraint firstItem="x32-K3-RSI" firstAttribute="top" secondItem="azF-mY-b6r" secondAttribute="top" constant="20" id="zHz-Ob-PBJ"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="azF-mY-b6r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6NO-v8-eYd"/>
+                            <constraint firstItem="azF-mY-b6r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EXi-nk-aOk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="azF-mY-b6r" secondAttribute="bottom" id="Pvb-n4-aWV"/>
+                            <constraint firstAttribute="trailing" secondItem="azF-mY-b6r" secondAttribute="trailing" id="dq4-Qj-EdQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bcx-kK-6B2"/>
+                    <connections>
+                        <outlet property="bottomVerticalSpace" destination="wpQ-b4-WOf" id="vCY-ie-Grd"/>
+                        <outlet property="button1Leading" destination="jCy-J7-wgc" id="PEM-c9-PW2"/>
+                        <outlet property="button1Trailing" destination="sPY-u2-86b" id="dar-QQ-7AI"/>
+                        <outlet property="button1Width" destination="D13-zL-WXx" id="kds-zv-rRe"/>
+                        <outlet property="button2Leading" destination="faa-Bi-KSg" id="n6F-sc-rjg"/>
+                        <outlet property="button2Trailing" destination="mwu-FG-Fkn" id="6aH-LX-LpF"/>
+                        <outlet property="button2Width" destination="lE9-tD-wAm" id="fK9-Rs-qfh"/>
+                        <outlet property="scrollView" destination="azF-mY-b6r" id="2uM-02-r5Z"/>
+                        <outlet property="textFieldLeading" destination="2AV-Cp-hOP" id="rfL-GT-FNu"/>
+                        <outlet property="textFieldTrailing" destination="ruv-PI-yM6" id="w9d-q6-dSj"/>
+                        <outlet property="textFieldWidth" destination="g3f-Z8-rqf" id="ALd-f9-0qg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mXG-yU-Ymh">
+            <objects>
+                <navigationController id="hdm-tS-hWH" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AQh-9U-Ubf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gvf-P6-llX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AhM-VR-r3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-532" y="136"/>
+        </scene>
+    </scenes>
+</document>
