@@ -19,13 +19,16 @@
 #import "VFAppSecurityLockWindow_Subclass.h"
 #import "VFWindow.h"
 
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 @implementation VFAppSecurityLockWindow {
     VFWindow *_window;
+    BOOL _firstTimeDidBecomeActive;
 }
 
 - (instancetype)init {
     self = [super init];
-    _level = UIWindowLevelAlert + 1;
+    _level = UIWindowLevelStatusBar - 1;
     return self;
 }
 
@@ -66,10 +69,10 @@
     if (_window == nil) {
         _window = [VFWindow addWindow];
         _window.level = _level;
-        
-    } else if ([self isLockViewControllerPresentedInKeyWindow]) {
-        [self applicationWillResignActiveWithLockViewController:_window.rootViewController];
+        _firstTimeDidBecomeActive = YES;
     }
+    
+    [self applicationWillResignActiveWithLockViewController:_window.rootViewController];
 }
 
 - (void)applicationDidEnterBackground:(NSNotification *)n {
@@ -79,17 +82,36 @@
 }
 
 - (void)applicationDidBecomeActive:(NSNotification *)n {
-    if ([self isLockViewControllerPresentedInKeyWindow]) {
+    if ([self isLockViewControllerActuallyLoaded]) {
         [self applicationDidBecomeActiveWithLockViewController:_window.rootViewController];
     } else {
         [self dismiss];
     }
+    
+    _firstTimeDidBecomeActive = NO;
 }
 
 #pragma mark check
 
-- (BOOL)isLockViewControllerPresentedInKeyWindow {
-    return _window && _window.keyWindow && _window.rootViewController;
+/**
+  * On iOs < 8 viewcontroller's view may be not loaded actually.
+  * It happens if a window is presented when UIAlertView is shown.
+  * Note that isViewLoaded may return YES, but viewDidLoad was not called.
+*/
+- (BOOL)isLockViewControllerActuallyLoaded {
+    if (_window.rootViewController == nil) {
+        return NO;
+    }
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
+        return YES;
+    }
+    
+    if (_firstTimeDidBecomeActive && _window.keyWindow == NO) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 #pragma mark subclass methods

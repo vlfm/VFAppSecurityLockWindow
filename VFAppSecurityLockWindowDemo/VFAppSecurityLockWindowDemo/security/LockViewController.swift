@@ -23,6 +23,11 @@ import UIKit
         unlockAction?(sender: self)
     }
     
+    @IBAction func alertViewButtonTap(sender: AnyObject) {
+        var alertView = UIAlertView(title: "UIAlertView", message: nil, delegate: nil, cancelButtonTitle: "Close")
+        alertView.show()
+    }
+    
     deinit {
         NSLog("LockViewController deinit")
     }

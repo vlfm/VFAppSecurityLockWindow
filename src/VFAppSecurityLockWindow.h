@@ -21,7 +21,7 @@
 @interface VFAppSecurityLockWindow : NSObject
 
 /**
-  * Default: UIWindowLevelAlert + 1
+  * Default: UIWindowLevelStatusBar - 1
 */
 @property(nonatomic) CGFloat level;
 
