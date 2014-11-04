@@ -53,9 +53,15 @@
     }
 }
 
+- (NSUInteger)supportedInterfaceOrientations {
+    UIApplication *application = [UIApplication sharedApplication];
+    return [application supportedInterfaceOrientationsForWindow:application.keyWindow];
+}
+
 - (void)dismiss {
     [VFWindow dismissWindow:_window dismissBlock:nil];
     _window = nil;
+    _locked = NO;
     [self didDismiss];
 }
 
@@ -70,6 +76,7 @@
         _window = [VFWindow addWindow];
         _window.level = _level;
         _firstTimeDidBecomeActive = YES;
+        _locked = YES;
     }
     
     [self applicationWillResignActiveWithLockViewController:_window.rootViewController];
