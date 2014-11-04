@@ -27,4 +27,15 @@
 
 @property (nonatomic) BOOL active;
 
+@property (nonatomic, readonly) BOOL locked;
+
+/**
+  * This method can be overriden.
+  * Can be used in AppDelegate's method for controlling interface orientations for
+  * lock window.
+  * By default, it calls UIApplication "supportedInterfaceOrientationsForWindow:" method
+  * with current keyWindow argument.
+*/
+- (NSUInteger)supportedInterfaceOrientations;
+
 @end
